@@ -25,7 +25,23 @@ class Users:
         '''
         delete_user method deletes a saved user from the user_list
         '''
-    
+        Users.user_list.remove(self)
+    @classmethod
+    def user_exist(cls,name):
+        '''
+        method that checks if a user exists from the user_list
+        
+        Args:
+            name: username to search if the person exists
+        Returns:
+        Boolean: true or false depending if the user exists
+        '''
+        for user in cls.user_list:
+            if user.user_name == name:
+                return True
+            
+        return False
+            
         
 
 class Credentials:
@@ -83,5 +99,17 @@ class Credentials:
         Credentials.credential_list.remove(self)
     
     @classmethod
-    
-    
+    def credential_exist(cls,account_name):
+        '''
+        Method that checks if the credentials exist from the credential_list.
+        
+        Args:
+           account-name: account_name to search if credentials exist
+        Returns :
+            Boolean: True or false depending if the credentials exist
+        '''    
+        for account in cls.credential_list:
+            if account.account_username == account_name:
+                return True
+            
+        return False
