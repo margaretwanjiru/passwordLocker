@@ -19,7 +19,15 @@ class Users:
         '''
             
         Users.user_list.append(self)
+        
+    def delete_user(self):
+        
+        '''
+        delete_user method deletes a saved user from the user_list
+        '''
     
+        
+
 class Credentials:
     """
     Class that generates new instances of user credentials
@@ -44,5 +52,36 @@ class Credentials:
         
         Credentials.credential_list.append(self)
     
+    @classmethod
+    def display_credential(cls):
+        '''
+        method that returns the credential list
+        '''
+        return cls.credential_list
+         
+        
+    @classmethod
+    def find_by_username(cls,name):
+        '''
+        method that takes in a username and returns the user credentials that matches the username.
+        
+        Args:
+            name: user name to search for credential
+        Return :
+            Credential of person that matches the username.    
+        '''
+        for credential in cls.credential_list:
+            if credential.user_name == name:
+                return credential
+            
+    def delete_credential(self):
+        
+        '''
+        delete-credential method deletes a saved credential from the credential_list
+        '''
+        
+        Credentials.credential_list.remove(self)
+    
+    @classmethod
     
     
