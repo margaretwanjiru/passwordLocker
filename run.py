@@ -8,6 +8,14 @@ def create_user(uname,password):
     new_user = Users(uname,password)
     return new_user
 
+def save_users(user):
+    '''
+    Fuunction to save users
+    '''
+    user.save_user()
+
+
+
 
 def create_credential(uname, account, account_username, account_password):
     '''
@@ -16,8 +24,24 @@ def create_credential(uname, account, account_username, account_password):
     new_credential = Credentials(uname, account, account_username, account_password)
     return new_credential
 
+def save_credentials(credential):
+    '''
+    Function to save credentials
+    '''
+    credential.save_credential()
 
+def del_credential(Credential):
+    '''
+    Function to delete credential
+    '''
+    credential.delete_credential()
 
+def display_credential():
+    '''
+    returns all the saved credentials
+    '''
+    return Credentials.display_credential()        
+        
 def main():
     print("Hello Welcome to your password locker.Please input your name...")
     
