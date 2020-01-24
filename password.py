@@ -12,7 +12,14 @@ class Users:
         self.user_name = user_name
         self.password = password
     
-    # 
+    def save_user(self):
+            
+        '''
+        save_user method saves user objects into user_list
+        '''
+            
+        Users.user_list.append(self)
+    
 class Credentials:
     """
     Class that generates new instances of user credentials
@@ -28,4 +35,14 @@ class Credentials:
         self.account = account
         self.account_username = account_username
         self.account_password = account_password
-   
+        
+    def save_credential(self):
+         
+        '''
+        saves the inputed credentials
+        '''
+        
+        Credentials.credential_list.append(self)
+    
+    
+    
