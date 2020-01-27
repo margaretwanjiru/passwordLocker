@@ -1,3 +1,8 @@
+import string
+import random
+
+# Global varaibles
+global users_list
 class Users:
     """
     Class that generates new instances of users
@@ -49,8 +54,16 @@ class Credentials:
     Class that generates new instances of user credentials
     """
     credential_list = [] #Empty credential list
-    
-    def __init__(self, user_name, account, account_username, account_password):
+    @classmethod
+    def check_user(cls,user_name,password):
+        '''
+        method that checks if the credential entered matches entry in the user_list
+        '''
+        for user in Users.user-list:
+            if(user.user_name == user_name and user.password == password):
+                current_user = user.user_name
+        return current_user
+    def __init__(self, user_name, account, account_username, password):
     
         '''
         __init__ method that helps us define properties from our user credentials.
@@ -58,7 +71,7 @@ class Credentials:
         self.user_name = user_name
         self.account = account
         self.account_username = account_username
-        self.account_password = account_password
+        self.password = password
         
     def save_credential(self):
          
@@ -67,6 +80,12 @@ class Credentials:
         '''
         
         Credentials.credential_list.append(self)
+    def generate_password(size=8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+        '''
+        Function to generate an 8 character password
+        '''
+        gen_pass=''.join(random.choice(char) for _ in range(size))
+        return gen_pass
     
     @classmethod
     def display_credential(cls):

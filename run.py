@@ -14,14 +14,19 @@ def save_users(user):
     '''
     user.save_user()
 
+def generate_password():
+    '''
+    Function that generates a password
+    '''
+    gen_pass = Credentials.generate_password()
+    return gen_pass
 
 
-
-def create_credential(uname, account, account_username, account_password):
+def create_credential(uname, account, account_username, password):
     '''
     Function to create new credential
     '''
-    new_credential = Credentials(uname, account, account_username, account_password)
+    new_credential = Credentials(uname, account, account_username, password)
     return new_credential
 
 def save_credentials(credential):
@@ -82,13 +87,27 @@ def main():
             
             print("Account username .....")
             account_username = input()
+            while True:
+                print(' ')
+                print("-"*60)
+                print('Please use the short codes to choose an option to set a password: ep-enter a password gp-generate a password ex-exit') 
+                psw_choice =input("Enter an option....")
+                print("-"*60)
+                if psw_choice == 'ep':
+                    print(" ")
+                    password =input("Enter your password.....")
+                    break
+                elif psw_choice == 'gp':
+                    password = generate_password()
+                    break
+                elif psw_choice == 'ex':
+                    break
+                else:
+                    print("please try again")
             
-            print("Account password ....")
-            account_password = input()
-            
-            save_credentials(create_credential(uname, account, account_username, account_password)) #create and save new credentials
+            save_credentials(create_credential(uname, account, account_username, password)) #create and save new credentials
             print('\n')
-            print(f"New credentials for {uname} ,*{account}* account and the username for the account is *{account_username}* password **{account_password}**")
+            print(f"New credentials for {uname} ,*{account}* account and the username for the account is *{account_username}* password **{password}**")
             print('\n')
             
         elif short_code == 'lg':
