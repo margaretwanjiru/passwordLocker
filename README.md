@@ -15,7 +15,7 @@
 #### BDD
 * This is  an amaizing application that will help us manage our passwords and even generate new passwords for us.
 
-<!-- ![alt](image/image.jpg) -->
+![alt](Image/image.jpg)
 
 
 #### SUPPORT & COLLABORATION
