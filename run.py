@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
-from password import Users, Credentials
+from user import Users
+from credential import Credentials
 
 def create_user(uname,password):
     '''
@@ -22,11 +23,11 @@ def generate_password():
     return gen_pass
 
 
-def create_credential(uname, account, account_username, password):
+def create_credential(uname, account, account_username, account_password):
     '''
     Function to create new credential
     '''
-    new_credential = Credentials(uname, account, account_username, password)
+    new_credential = Credentials(uname, account, account_username, account_password)
     return new_credential
 
 def save_credentials(credential):
@@ -130,10 +131,10 @@ def main():
         elif short_code == 'dc':
             print('')      
             if display_credential():
-                print("Here is all your credentials list ;")    
+                print("Here is all your credentials list ;")    .lower().strip()
                 print(' ')
                 for credential in display_credential():
-                    print(f"Account name: {credential.account} , Account username: {credential.account_username} ,Password: {credential.account_password}")
+                    print(f"Account name: {credential.account} , Account username: {credential.account_username} ,Password: {credential.password}")
                 print(' ')    
             else:
                 print(' ')
